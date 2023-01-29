@@ -23,7 +23,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
+            <a href="{{ asset('/') }}admin/nominal-value/" class="nav-link">
               <i class="nav-icon fas fa-money-bill-alt"></i>
               <p>Nominal Value</p>
             </a>

@@ -29,21 +29,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-              <i class="nav-icon fas fa-clipboard"></i>
-              <p>Home Posting</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
+            <a href="{{ asset('/') }}admin/user-list/" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>User List</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-              <i class="nav-icon fas fa-sticky-note"></i>
-              <p>User note</p>
             </a>
           </li>
         </ul>

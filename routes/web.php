@@ -28,12 +28,6 @@ Route::get('/admin/water-payment/view', [App\Http\Controllers\Admin\WaterPayment
 
 Route::get('/admin/nominal-value', [App\Http\Controllers\Admin\NominalValueController::class, 'index']);
 
-Route::get('/admin/home-posting', [App\Http\Controllers\Admin\WaterPaymentController::class, 'index']);
-Route::get('/admin/home-posting/view', [App\Http\Controllers\Admin\WaterPaymentController::class, 'view']);
+Route::get('/admin/user-list', [App\Http\Controllers\Admin\UserListController::class, 'index']);
 
-Route::get('/admin/user-list', [App\Http\Controllers\Admin\WaterPaymentController::class, 'index']);
-Route::get('/admin/user-list/view', [App\Http\Controllers\Admin\WaterPaymentController::class, 'view']);
-
-Route::get('/admin/note', [App\Http\Controllers\Admin\WaterPaymentController::class, 'index']);
-Route::get('/admin/note/view', [App\Http\Controllers\Admin\WaterPaymentController::class, 'view']);
 

@@ -18,7 +18,7 @@
                             </div>
                         </div>
                         <div class="col-2">
-                            <button type="submit" class="btn btn-primary">Cek Example Water Meter</button>
+                            <button type="submit" class="btn btn-block btn-primary">Kalkulasi Nominal Air per Meter</button>
                         </div>
                     </div>
                 </div>
@@ -26,11 +26,10 @@
                     <div class="col-12">
                         <label>Total Nominal Calulator</label>
                         <div class="card">
-                            <div class="card-body table-responsive p-0" style="height: 300px;">
+                            <div class="card-body table-responsive p-0">
                                 <table class="table table-head-fixed text-nowrap">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
                                             <th>Meter</th>
                                             <th>Nominal</th>
                                             <th>Total</th>
@@ -39,37 +38,16 @@
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>1</td>
                                             <td>Rp 5000,00</td>
                                             <td>Rp 15000,00</td>
                                         </tr>
                                         <tr>
-                                            <td>2</td>
                                             <td>5</td>
                                             <td>Rp 5000,00</td>
                                             <td>Rp 15000,00</td>
                                         </tr>
                                         <tr>
-                                            <td>3</td>
                                             <td>10</td>
-                                            <td>Rp 5000,00</td>
-                                            <td>Rp 15000,00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>50</td>
-                                            <td>Rp 5000,00</td>
-                                            <td>Rp 15000,00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>100</td>
-                                            <td>Rp 5000,00</td>
-                                            <td>Rp 15000,00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>500</td>
                                             <td>Rp 5000,00</td>
                                             <td>Rp 15000,00</td>
                                         </tr>

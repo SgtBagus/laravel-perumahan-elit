@@ -5,12 +5,14 @@
         <li class="nav-item">
           <a href="index3.html" class="nav-link">Home</a>
         </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">Kasir Page</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">Pencatatan Meteran</a>
-        </li>
+        @if (session('status'))
+          <li class="nav-item">
+            <a href="#" class="nav-link">Kasir Page</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Pencatatan Meteran</a>
+          </li>
+        @endif
       </ul>
     </div>
 

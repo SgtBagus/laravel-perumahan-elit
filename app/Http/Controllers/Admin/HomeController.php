@@ -15,7 +15,7 @@ class HomeController extends Controller
     public function index()
     {
         $params = [
-            "titlePages"    =>  'Water Payment List'
+            "titlePages"    =>  'Admin - Water Payment List'
         ];
 
         return view('admin.index', $params);

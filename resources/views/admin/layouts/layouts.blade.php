@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="{{ asset('/') }}/dist/css/adminlte.min.css">
         @stack('css')
     </head>
-    <body class="sidebar-mini">
+    <body class="sidebar-mini layout-navbar-fixed">
         <div class="wrapper">
             @include('admin.layouts.components.header')
             @include('admin.layouts.components.sidebar')

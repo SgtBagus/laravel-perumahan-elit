@@ -14,16 +14,18 @@ class WaterPaymentController extends Controller
      */
     public function index() {
         $params = [
-            "titlePages"    =>  'Water Payment List'
+            "titlePages"    =>  'Payment List - Water Payment'
         ];
 
-        return view('admin.WaterPayment.index', $params);
+        return view('admin.paymentData.index', $params);
     }
 
-    public function view() {
+
+    public function view($id) {
         $params = [
-            "titlePages"    =>  'Water Payment List - View'
+            "titlePages"    =>  'Payment List - Water Payment',
+            "id"            => $id,
         ];
-        return view('admin.WaterPayment.form', $params);
+        return view('admin.paymentData.view', $params);
     }
 }

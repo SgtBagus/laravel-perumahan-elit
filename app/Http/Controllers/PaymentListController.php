@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 class PaymentListController extends Controller {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function index() {
         $params = [
             "titlePages"    =>  'Payment List - Water Payment'

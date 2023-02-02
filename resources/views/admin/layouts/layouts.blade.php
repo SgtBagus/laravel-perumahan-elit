@@ -26,7 +26,8 @@
                   </div><!-- /.container-fluid -->
                 </section>
                 <section class="content">
-                    @yield('content')
+                  @include('components.paymentReminder')
+                  @yield('content')
                 </section>
             </div>
 

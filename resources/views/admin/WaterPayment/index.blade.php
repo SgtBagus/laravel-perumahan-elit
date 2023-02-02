@@ -14,15 +14,11 @@
   <div class="card">
     <div class="card-header">
       <div class="row align-items-center">
-        <div class="col-12 col-md-6">
+        <div class="col-md-6">
           <h2 class="card-title">Water Payment List</h2>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-md-6">
           <div class="float-right">
-            <button type="button" class="btn btn-outline-primary mr-2">
-              <i class="fas fa-download mr-2"></i>
-              Download Laporan
-            </button>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-xl">
               <i class="fas fa-plus mr-2"></i>
               Add Data

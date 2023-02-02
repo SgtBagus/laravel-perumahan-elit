@@ -18,13 +18,18 @@
                   <div class="container">
                     <div class="row mb-2">
                       <div class="col-sm-12">
-                        <h1 class="m-0"> Top Navigation <small>Example 3.0</small></h1>
+                        <h1 class="m-0">{{ $titlePages }}</small></h1>
                       </div>
                     </div>
                   </div>
                 </div>
                 <section class="content">
+                  <div class="container">
+                    @if (session('status'))  
+                      @include('components.paymentReminder')
+                    @endif
                     @yield('content')
+                  </section>
                 </section>
             </div>
 

@@ -7,10 +7,13 @@
         </li>
         @if (session('status'))
           <li class="nav-item">
-            <a href="#" class="nav-link">Kasir Page</a>
+            <a href="{{ url('/payment-list') }}" class="nav-link">Data Bulanan</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Pencatatan Meteran</a>
+            <a href="{{ url('/casher') }}" class="nav-link">Kasir Page</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/water-noted') }}" class="nav-link">Pencatatan Meteran</a>
           </li>
         @endif
       </ul>
@@ -18,20 +21,16 @@
 
     <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto navbar-nav ms-auto">
         @guest
-            @if (Route::has('login'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-            @endif
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            </li>
 
-            @if (Route::has('register'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                </li>
-            @endif
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+            </li>
         @else
             <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ url('/profile') }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }}
                 </a>
 

@@ -11,25 +11,25 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
-            <a href="{{ asset('/') }}admin/" class="nav-link">
+            <a href="{{ url('/admin') }}" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>Dashboard</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ asset('/') }}admin/water-payment/" class="nav-link">
+            <a href="{{ url('/admin/water-payment/') }}" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>Water Payment List</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ asset('/') }}admin/nominal-value/" class="nav-link">
+            <a href="{{ url('/admin/nominal-value/') }}" class="nav-link">
               <i class="nav-icon fas fa-money-bill-alt"></i>
               <p>Nominal Value</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ asset('/') }}admin/user-list/" class="nav-link">
+            <a href="{{ url('/admin/user-list/') }}" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>User List</p>
             </a>

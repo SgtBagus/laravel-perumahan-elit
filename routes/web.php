@@ -31,14 +31,14 @@ Route::get('/casher/view/{id}', [App\Http\Controllers\CasherController::class, '
 Route::get('/water-noted', [App\Http\Controllers\WaterNotedController::class, 'index']);
 
 /* ADMIN ROUTE */
-Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index']);
+Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->middleware('role:admin');
 
-Route::get('/admin/water-payment', [App\Http\Controllers\Admin\WaterPaymentController::class, 'index']);
-Route::get('/admin/water-payment/view/{id}', [App\Http\Controllers\Admin\WaterPaymentController::class, 'view']);
-Route::get('/admin/water-payment/delete/{id}', [App\Http\Controllers\Admin\WaterPaymentController::class, 'view']);
+Route::get('/admin/water-payment', [App\Http\Controllers\Admin\WaterPaymentController::class, 'index'])->middleware('role:admin');
+Route::get('/admin/water-payment/view/{id}', [App\Http\Controllers\Admin\WaterPaymentController::class, 'view'])->middleware('role:admin');
+Route::get('/admin/water-payment/delete/{id}', [App\Http\Controllers\Admin\WaterPaymentController::class, 'view'])->middleware('role:admin');
 
-Route::get('/admin/nominal-value', [App\Http\Controllers\Admin\NominalValueController::class, 'index']);
+Route::get('/admin/nominal-value', [App\Http\Controllers\Admin\NominalValueController::class, 'index'])->middleware('role:admin');
 
-Route::get('/admin/user-list', [App\Http\Controllers\Admin\UserListController::class, 'index']);
+Route::get('/admin/user-list', [App\Http\Controllers\Admin\UserListController::class, 'index'])->middleware('role:admin');
 
 

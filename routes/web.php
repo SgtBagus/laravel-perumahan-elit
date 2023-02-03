@@ -1,21 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+use App\Http\Controllers\Admin\UserListController;
 
 Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
@@ -28,8 +14,6 @@ Route::get('/payment-list/view/{id}', [App\Http\Controllers\PaymentListControlle
 Route::get('/casher', [App\Http\Controllers\CasherController::class, 'index']);
 Route::get('/casher/view/{id}', [App\Http\Controllers\CasherController::class, 'view']);
 
-Route::get('/water-noted', [App\Http\Controllers\WaterNotedController::class, 'index']);
-
 /* ADMIN ROUTE */
 Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->middleware('role:admin');
 
@@ -39,6 +23,4 @@ Route::get('/admin/water-payment/delete/{id}', [App\Http\Controllers\Admin\Water
 
 Route::get('/admin/nominal-value', [App\Http\Controllers\Admin\NominalValueController::class, 'index'])->middleware('role:admin');
 
-Route::get('/admin/user-list', [App\Http\Controllers\Admin\UserListController::class, 'index'])->middleware('role:admin');
-
-
+Route::resource('/admin/user-list', UserListController::class)->middleware('role:admin');

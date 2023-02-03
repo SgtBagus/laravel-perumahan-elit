@@ -37,6 +37,15 @@
                         </span>
                     @enderror
                 </div>
+                <div class="mb-3">
+                    <textarea id="address" type="address" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" placeholder="Alamat"></textarea>
+
+                    @error('address')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
                 <div class="input-group mb-3">
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
                     <div class="input-group-append">

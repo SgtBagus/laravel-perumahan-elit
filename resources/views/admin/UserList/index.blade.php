@@ -1,4 +1,6 @@
 @extends('admin.layouts.layouts')
+@include('sweetalert::alert')
+
 @push('css')
   <link rel="stylesheet" href="{{ asset('/') }}plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="{{ asset('/') }}plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
@@ -14,16 +16,8 @@
   <div class="card">
     <div class="card-header">
       <div class="row align-items-center">
-        <div class="col-12 col-md-6">
+        <div class="col-12">
           <h2 class="card-title">UserList</h2>
-        </div>
-        <div class="col-12 col-md-6">
-          <div class="float-right">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-xl">
-              <i class="fas fa-plus mr-2"></i>
-              Add Data
-            </button>
-          </div>
         </div>
       </div>
     </div>
@@ -71,105 +65,112 @@
             <th>Email</th>
             <th>Address</th>
             <th>Role</th>
-            <th>Created Date</th>
             <th>Updated Date</th>
+            <th>Created Date</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
+          @foreach ($users as $user)
           <tr>
-            <td>1</td>
-            <td>Bagus</td>
-            <td>admin@gmail.com</td>
+            <td>{{ $loop->index+1}}</td>
+            <td>{{ $user->name }}</td>
+            <td>{{ $user->email }}</td>
+            <td>{{ $user->address }}</td>
+            <td>{{ $user->role }}</td>
+            <td>{{ date_format($user->updated_at,"d M Y H:i:s") }}</td>
+            <td>{{ date_format($user->created_at,"d M Y H:i:s") }}</td>
             <td>
-              asdlkqjwelkqjwelkj alksdjlkqjwkwkwe
-            </td>
-            <td>Admin</td>
-            <td>2022-12-42</td>
-            <td>2022-12-42</td>
-            <td>
-              <button type="button" class="btn btn-primary btn-delete">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-{{ $user->id }}">
                 <i class="fas fa-eye"></i>
               </button>
-              <button type="button" class="btn btn-danger btn-delete">
+              
+              <div class="modal fade" id="modal-{{ $user->id }}">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Create - Water Payment Data</h4>
+                    </div>
+                    <form action="{{ route('user-list.update', $user->id) }}" id="quickForm" method="POST">
+                      @csrf
+                      @method('PUT')
+
+                      <div class="modal-body">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label>Name</label>
+                              <input type="text" name="name" class="form-control" placeholder="Nama Pengguna" value={{ $user->name }}>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label>Email</label>
+                              <input type="text" name="email" class="form-control" placeholder="Email Pengguna" value={{ $user->email }}>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label>Alamat :</label>
+                              <textarea class="form-control" rows="5" name="address" placeholder="Alamat...">{{ $user->address }}</textarea>
+                            </div>
+                          </div>
+                        </div>
+                        {{-- {{if($user->role === "user" )}} --}}
+                        <div class="row">
+                          <div class="col-md-12">
+                            <label>Role :</label>
+                            <select class="form-control select2bs4" name="role" style="width: 100%;">
+                              <option
+                                value="admin"
+                                {{ ($user->role === "admin" ) ? 'selected' : ''}}
+                              >
+                                Admin
+                              </option>
+                              <option
+                                value="casher"
+                                {{ ($user->role === "casher" ) ? 'selected' : ''}}
+                              >
+                                Kasir
+                              </option>
+                              <option
+                                value="noted"
+                                {{ ($user->role === "noted" ) ? 'selected' : ''}}
+                                
+                              >
+                                Pencatat Meteran
+                              </option>
+                              <option
+                                value="user"
+                                {{ ($user->role === "user" ) ? 'selected' : ''}}
+                              >
+                                User
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-danger btn-delete" data-id={{ $user->id }}>
                 <i class="fas fa-trash"></i>
               </button>
             </td>
           </tr>
-          <tr>
-            <td>1</td>
-            <td>aBagus</td>
-            <td>admin@gmail.com</td>
-            <td>
-              asdlkqjwelkqjwelkj alksdjlkqjwkwkwe
-            </td>
-            <td>Admin</td>
-            <td>2022-12-42</td>
-            <td>2022-12-42</td>
-            <td>
-              <button type="button" class="btn btn-primary btn-delete">
-                <i class="fas fa-eye"></i>
-              </button>
-              <button type="button" class="btn btn-danger btn-delete">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
-          </tr>
+          @endforeach
         </tbody>
       </table>
-    </div>
-  </div>
-
-  <div class="modal fade" id="modal-xl">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Create - Water Payment Data</h4>
-        </div>
-        <form id="quickForm">
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label>Name</label>
-                  <input type="text" name="userName" class="form-control" placeholder="Nama Pengguna">
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label>Email</label>
-                  <input type="text" name="userEmail" class="form-control" placeholder="Email Pengguna" disabled>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label>Alamat :</label>
-                  <textarea class="form-control" rows="5" name="alamat" placeholder="Alamat..."></textarea>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <label>Role :</label>
-                <select class="form-control select2bs4" name="user" style="width: 100%;">
-                  <option>Admin</option>
-                  <option>Kasir</option>
-                  <option>Pencatat Meteran</option>
-                  <option selected="selected">User</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save</button>
-          </div>
-        </form>
-      </div>
     </div>
   </div>
 @endsection
@@ -193,14 +194,10 @@
         "paging": true,
         "lengthChange": false,
         "searching": false,
-        "ordering": true,
+        "ordering": false,
         "info": true,
         "autoWidth": false,
         "responsive": true,
-        "columnDefs": [{
-          "targets": 5,
-          "orderable": false
-        }]
       });
       
       //Initialize Select2 Elements
@@ -214,24 +211,30 @@
     
       $('#quickForm').validate({
         rules: {
-          userName: {
+          name: {
             required: true,
           },
-          userEmail: {
+          email: {
             required: true,
           },
-          alamat: {
+          address: {
+            required: true,
+          },
+          role: {
             required: true,
           },
         },
         messages: {
-          user: {
+          name: {
             required: "Tidak Boleh Kosong",
           },
-          userEmail: {
+          email: {
             required: "Tidak Boleh Kosong",
           },
-          alamat: {
+          address: {
+            required: "Tidak Boleh Kosong",
+          },
+          role: {
             required: "Tidak Boleh Kosong",
           },
         },
@@ -258,6 +261,7 @@
           confirmButtonText: 'Iya'
         }).then((result) => {
           if (result.isConfirmed) {
+            var userId = $(this).attr('data-id');
             Swal.fire(
               'Terhapus!',
               'Data Tersebut Berhasil di Hapus',

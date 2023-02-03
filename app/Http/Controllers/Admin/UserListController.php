@@ -35,8 +35,8 @@ class UserListController extends Controller {
         return redirect()->back();
     }
 
-    public function destroy($id) {
-        $users = User::findOrFail($id);
-        $users->delete();
+    public function destroy(Request $request) {
+        User::find($request->id)->delete();
+        return response()->json(array('success' => true));
     }
 }

@@ -261,12 +261,35 @@
           confirmButtonText: 'Iya'
         }).then((result) => {
           if (result.isConfirmed) {
-            var userId = $(this).attr('data-id');
-            Swal.fire(
-              'Terhapus!',
-              'Data Tersebut Berhasil di Hapus',
-              'success'
-            )
+            var id = $(this).attr('data-id');
+
+            $.ajax({
+              type: 'DELETE',
+              url: "{{url('/admin/user-list/delete/')}}"+id,
+              dataType: 'JSON',
+              data:{
+                  'id': id,
+                  '_token': '{{ csrf_token() }}',
+              },
+              success: function (data) {
+                if (data.success){
+                  swal.fire({
+                    title: "Terhapus!",
+                    text: "Data Tersebut Berhasil di Hapus!",
+                    icon: "success",
+                  }).then(function() {
+                    location.reload();
+                  });
+                }
+              },
+              error: function (xhr) {
+                Swal.fire(
+                  'GAGAL!',
+                  'Terjadi Kesalahan',
+                  'error'
+                )
+              }
+            });
           }
         })
       });

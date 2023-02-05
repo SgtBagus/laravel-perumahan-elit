@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Admin\UserListController;
+use App\Http\Controllers\Admin\NominalValueController;
 
 Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
@@ -21,6 +23,5 @@ Route::get('/admin/water-payment', [App\Http\Controllers\Admin\WaterPaymentContr
 Route::get('/admin/water-payment/view/{id}', [App\Http\Controllers\Admin\WaterPaymentController::class, 'view'])->middleware('role:admin');
 Route::get('/admin/water-payment/delete/{id}', [App\Http\Controllers\Admin\WaterPaymentController::class, 'view'])->middleware('role:admin');
 
-Route::get('/admin/nominal-value', [App\Http\Controllers\Admin\NominalValueController::class, 'index'])->middleware('role:admin');
-
+Route::resource('/admin/nominal-value', NominalValueController::class)->middleware('role:admin');
 Route::resource('/admin/user-list', UserListController::class)->middleware('role:admin');

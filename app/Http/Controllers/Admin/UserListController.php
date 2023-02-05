@@ -16,7 +16,7 @@ class UserListController extends Controller {
     public function index() {
         $params = [
             "titlePages"    => 'User List',
-            "users"         => User::latest()->paginate(5),
+            "users"         => User::latest()->get(),
         ];
 
         return view('admin.UserList.index', $params);

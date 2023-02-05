@@ -13,7 +13,6 @@
     <div class="d-flex align-items-end">
       <div class="mx-1 flex-grow-1">
         <label>Range Date :</label>
-
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text">
@@ -54,7 +53,6 @@
     </div>
   </form>
 </div>
-
 <div class="card-body">
   <table id="example2" class="table table-bordered table-hover">
     <thead>
@@ -70,18 +68,23 @@
       </tr>
     </thead>
     <tbody>
+      @foreach ($paymentLists as $paymentList)
       <tr>
-        <td>1</td>
-        <td>Bagus</td>
-        <td>25000</td>
+        <td>{{ $loop->index+1}}</td>
+        <td>{{ $paymentList->pemilik }}</td>
+        <td>Rp. {{ $paymentList->total_harga }}.00,-</td>
         <td>
-          <label class="fx-bold">Lunas</label>
+          @if (($paymentList->status) === 1)
+            <label class="fx-bold">Lunas</label>
+          @else
+            <label class="fx-bold text-danger">Belum Lunas</label>
+          @endif
         </td>
-        <td>test</td>
-        <td>Bagus</td>
-        <td>08-02-12</td>
+        <td>{{ $paymentList->note }}</td>
+        <td>{{ $paymentList->pembuat }}</td>
+        <td>{{ date_format($paymentList->updated_at,"d M Y H:i:s") }}</td>
         <td>
-          <a href="{{ url()->current(); }}/view/sadwe" type="button" class="btn btn-primary">
+          <a href="{{ url()->current(); }}/view/{{ $paymentList->id }}" type="button" class="btn btn-primary">
             <i class="fas fa-eye"></i>
           </a>
           <button type="button" class="btn btn-danger btn-delete">
@@ -89,25 +92,7 @@
           </button>
         </td>
       </tr>
-      <tr>
-        <td>2</td>
-        <td>Bagus</td>
-        <td>25000</td>
-        <td>
-          <label class="fx-bold">Lunas</label>
-        </td>
-        <td>test</td>
-        <td>Bagus</td>
-        <td>08-02-12</td>
-        <td>
-          <a href="{{ url()->current(); }}/view/sadwe" type="button" class="btn btn-primary">
-            <i class="fas fa-eye"></i>
-          </a>
-          <button type="button" class="btn btn-danger btn-delete">
-            <i class="fas fa-trash"></i>
-          </button>
-        </td>
-      </tr>
+      @endforeach
     </tbody>
   </table>
 </div>

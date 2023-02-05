@@ -23,6 +23,8 @@ return new class extends Migration
             array(
                 'value' => '5000.00',
                 'note' => '',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
             )
         );
     }

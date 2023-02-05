@@ -15,7 +15,7 @@ class NominalValueController extends Controller {
     public function index() {
         $params = [
             "titlePages"    => 'Nominal Value',
-            "datas"          => NominalValue::find(1),
+            "data"          => NominalValue::find(1),
         ];
 
         return view('admin.nominalValue.index', $params);
@@ -25,8 +25,9 @@ class NominalValueController extends Controller {
         $nominalValue = NominalValue::findOrFail($id);
 
         $nominalValue->update([
-            'value' => $request->nominal,
-            'note' => $request->note,
+            'value'         => $request->nominal,
+            'note'          => $request->note,
+            'updated_at'    => date('Y-m-d H:i:s'),
         ]);
 
         return redirect()->back();

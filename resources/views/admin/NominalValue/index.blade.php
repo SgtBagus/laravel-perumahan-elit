@@ -3,10 +3,9 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('nominal-value.update', $datas->id) }}" id="quickForm" method="POST">
+            <form action="{{ route('nominal-value.update', $data->id) }}" id="quickForm" method="POST">
               @csrf
               @method('PUT')
-                <input type="hidden" name="id" value={{ $datas->id }}>
                 <div class="form-group">
                     <label>Total Nominal per Meter</label>
                     <div class="row">
@@ -15,18 +14,18 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-money-bill"></i></span>
                                 </div>
-                                <input type="text" name="nominal" class="form-control" value={{ $datas->value }}>
+                                <input type="text" name="nominal" class="form-control" value={{ $data->value }}>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Catatan : </label>
-                    <textarea class="form-control" rows="5" name="note" placeholder="Alamat...">{{ $datas->note }}</textarea>
+                    <textarea class="form-control" rows="5" name="note" placeholder="Alamat...">{{ $data->note }}</textarea>
                 </div>
                 <div class="form-group">
                     <label>Updated at : </label>
-                    {{ date_format($datas->updated_at,"d M Y H:i:s") }}
+                    {{ date_format($data->updated_at,"d M Y H:i:s") }}
                 </div>
                 <div class="row">
                     <div class="col-12 text-right">

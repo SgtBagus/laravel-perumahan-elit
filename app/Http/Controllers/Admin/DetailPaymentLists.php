@@ -44,4 +44,10 @@ class DetailPaymentLists extends Controller {
 
         return redirect()->back();
     }
+
+    
+    public function destroy(Request $request) {
+        DetailWaterPaymentList::find($request->id)->delete();
+        return response()->json(array('success' => true));
+    }
 }

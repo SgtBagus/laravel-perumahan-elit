@@ -104,11 +104,11 @@
                                                                     <i class="fas fa-check"></i>
                                                                 </button>
                                                             @endif
-                                                        <button type="button" class="btn btn-danger btn-delete">
+                                                        <button type="button" class="btn btn-danger btn-delete" data-id={{ $list->id }}>
                                                             <i class="fas fa-trash"></i>
                                                         </button>
                                                     @elseif ((Auth::user()->role === 'noted'))
-                                                        <button type="button" class="btn btn-danger btn-delete">
+                                                        <button type="button" class="btn btn-danger btn-delete" data-id={{ $list->id }}>
                                                             <i class="fas fa-trash"></i>
                                                         </button>
                                                     @elseif ((Auth::user()->role === 'casher'))

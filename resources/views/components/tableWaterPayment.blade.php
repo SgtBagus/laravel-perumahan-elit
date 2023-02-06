@@ -48,7 +48,6 @@
       <tr>
         <th>No</th>
         <th>Nama</th>
-        <th>Total Harga</th>
         <th>Di Update Oleh</th>
         <th>Update Terakhir</th>
         <th>Action</th>
@@ -59,7 +58,6 @@
       <tr>
         <td>{{ $loop->index+1}}</td>
         <td>{{ $paymentList->pemilik }}</td>
-        <td>Rp. {{ $paymentList->total_harga }}.00,-</td>
         <td>{{ $paymentList->pembuat }}</td>
         <td>{{ date_format($paymentList->updated_at,"d M Y H:i:s") }}</td>
         <td>

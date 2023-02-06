@@ -17,7 +17,6 @@ return new class extends Migration
         Schema::create('water_payment_lists', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id');
-            $table->float('total_harga', 8, 2);
             $table->bigInteger('updated_by');
             $table->timestamps();
         });
@@ -31,14 +30,13 @@ return new class extends Migration
             $table->integer('current_meter');
             $table->integer('meter_added_value');
             $table->float('total', 8, 2);
-            $table->boolean('status');
+            $table->integer('status');
             $table->timestamps();
         });
 
         $defaultMasterPaymanetList = [
             [
                 'user_id'       => 1,
-                'total_harga'   => 50000.00,
                 'updated_by'    => 3,
                 'created_at'    => date('Y-m-d H:i:s'),
                 'updated_at'    => date('Y-m-d H:i:s'),

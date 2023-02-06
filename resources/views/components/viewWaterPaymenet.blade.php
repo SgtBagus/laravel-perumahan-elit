@@ -18,12 +18,6 @@
                     </div>
                     <div class="col-sm-4 invoice-col text-right">
                         Tanggal: {{ date_format($dataInvoices->updated_at,"d M Y H:i:s") }}
-                        <br />
-                        @if (($dataInvoices->status) === 1)
-                            <h1 class="fx-bold">Lunas</h1>
-                        @else
-                            <h1 class="fx-bold text-danger">Belum Lunas</h1>
-                        @endif
                     </div>
                 </div>
                 <div class="row">
@@ -66,7 +60,7 @@
                                                                     name="currentMeter"
                                                                     placeholder="Meteran Sekarang..."
                                                                 >
-                                                                <input type="hidden" name="type" value="details" placeholder="Meteran Sekarang...">
+                                                                <input type="hidden" name="typeEdit" value="meterEdit" placeholder="Meteran Sekarang...">
                                                             </div>
                                                             <div class="col-md-2">
                                                                 <button type="submit" class="btn btn-primary">
@@ -93,13 +87,20 @@
                                         @if(Auth::user()->role !== 'user')
                                             <td>
                                                 <form action="{{ route('detail_payment_lists.update', $list->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+
                                                     @if ((Auth::user()->role === 'admin'))
                                                             @if (($list->status) === 1)
-                                                                <button href="submit" type="button" class="btn btn-danger">
+                                                                <input type="hidden" name="typeEdit" value="status" />
+                                                                <input type="hidden" name="status" value="0" />
+                                                                <button type="submit" class="btn btn-danger">
                                                                     <i class="fas fa-ban"></i>
                                                                 </button>
                                                             @else
-                                                                <button href="submit" type="button" class="btn btn-success">
+                                                                <input type="hidden" name="typeEdit" value="status" />
+                                                                <input type="hidden" name="status" value="1" />
+                                                                <button type="submit" class="btn btn-success">
                                                                     <i class="fas fa-check"></i>
                                                                 </button>
                                                             @endif
@@ -135,20 +136,15 @@
                     <div class="col-6">
                         <div class="table-responsive">
                             <table class="table">
-                                <tr class="text-danger">
-                                    <th><b>Kekurangan Denda:</b></th>
+                                <tr>
+                                    <th><b>Total Dana belum Lunas</b></th>
                                     <th><b>:</b></th>
                                     <td><b>Rp. {{ $totalDepts }}.00,-</b></td>
                                 </tr>
-                                <tr>
-                                    <th><b>Total</b></th>
-                                    <th><b>:</b></th>
-                                    <td><b>Rp. {{ $dataInvoices->total_harga }}.00,-</b></td>
-                                </tr>
                             </table>
-                            <button type="button" class="btn btn-success btn-block">
-                                <i class="fas fa-check"></i> Lunaskan Semua
-                            </button>
+                            <a href="{{ route('water-payment.index') }}" type="button" class="btn btn-info btn-block">
+                                Kembali
+                            </a>
                         </div>
                     </div>
                 </div>

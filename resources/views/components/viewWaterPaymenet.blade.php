@@ -56,8 +56,6 @@
                                     <th>Kenaikan M.</th>
                                     <th>Biaya per M.</th>
                                     <th>Total</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -99,21 +97,6 @@
                                         <td>{{ $list->meter_added_value }}</td>
                                         <td>Rp {{ $mNominalValue }},00,-</td>
                                         <td>Rp {{ $list->total }},00,-</td>
-                                        <td>
-                                            @if (($list->status) === 1)
-                                              <label class="fx-bold">Lunas</label>
-                                            @else
-                                              <label class="fx-bold text-danger">Belum Lunas</label>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <a href="#" type="button" class="btn btn-success disabled">
-                                                <i class="fas fa-check"></i>
-                                            </a>
-                                            <button type="button" class="btn btn-danger btn-delete">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -11,29 +11,30 @@
     </head>
     <body class="hold-transition layout-top-nav">
         <div class="wrapper">
-            @include('layouts.components.header')
-        
-            <div class="content-wrapper">
-                <div class="content-header">
-                  <div class="container">
-                    <div class="row mb-2">
-                      <div class="col-sm-12">
-                        <h1 class="m-0">{{ $titlePages }}</small></h1>
+            @guest
+              <div class="content-wrapper">
+                @yield('content')
+              </div>
+            @else
+              @include('layouts.components.header')
+              <div class="content-wrapper">
+                  <div class="content-header">
+                    <div class="container">
+                      <div class="row mb-2">
+                        <div class="col-sm-12">
+                          <h1 class="m-0">{{ $titlePages }}</small></h1>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <section class="content">
-                  <div class="container">
-                    @if (session('status'))  
+                  <section class="content">
+                    <div class="container">
                       @include('components.paymentReminder')
-                    @endif
-                    @yield('content')
+                      @yield('content')
+                    </section>
                   </section>
-                </section>
-            </div>
-
-            @include('admin.layouts.components.footer')
+              </div>
+            @endguest
         </div>
     </body>
     <script src="{{ asset('/') }}plugins/jquery/jquery.min.js"></script>

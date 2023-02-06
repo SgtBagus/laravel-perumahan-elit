@@ -8,6 +8,9 @@ use App\Http\Controllers\Admin\NominalValueController;
 Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
+/* DASHBOARD */
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
+
 /* PAYMENT LIST */
 Route::get('/payment-list', [App\Http\Controllers\PaymentListController::class, 'index']);
 Route::get('/payment-list/view/{id}', [App\Http\Controllers\PaymentListController::class, 'view']);

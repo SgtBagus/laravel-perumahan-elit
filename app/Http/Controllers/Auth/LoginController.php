@@ -20,7 +20,7 @@ class LoginController extends Controller {
                 break;
         
             default:
-                return '/'; 
+                return '/dashboard'; 
                 break;
         }
     }

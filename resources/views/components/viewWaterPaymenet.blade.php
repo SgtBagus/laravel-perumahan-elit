@@ -38,6 +38,10 @@
                                     <th>Kenaikan M.</th>
                                     <th>Biaya per M.</th>
                                     <th>Total</th>
+                                    <th>Status</th>
+                                    @if(Auth::user()->role !== 'user')
+                                        <th>Action</th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -79,6 +83,47 @@
                                         <td>{{ $list->meter_added_value }}</td>
                                         <td>Rp {{ $mNominalValue }},00,-</td>
                                         <td>Rp {{ $list->total }},00,-</td>
+                                        <td>
+                                            @if (($list->status) === 1)
+                                              <label class="fx-bold">Lunas</label>
+                                            @else
+                                              <label class="fx-bold text-danger">Belum Lunas</label>
+                                            @endif
+                                        </td>
+                                        @if(Auth::user()->role !== 'user')
+                                            <td>
+                                                <form action="{{ route('detail_payment_lists.update', $list->id) }}" method="POST">
+                                                    @if ((Auth::user()->role === 'admin'))
+                                                            @if (($list->status) === 1)
+                                                                <button href="submit" type="button" class="btn btn-danger">
+                                                                    <i class="fas fa-ban"></i>
+                                                                </button>
+                                                            @else
+                                                                <button href="submit" type="button" class="btn btn-success">
+                                                                    <i class="fas fa-check"></i>
+                                                                </button>
+                                                            @endif
+                                                        <button type="button" class="btn btn-danger btn-delete">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    @elseif ((Auth::user()->role === 'noted'))
+                                                        <button type="button" class="btn btn-danger btn-delete">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    @elseif ((Auth::user()->role === 'casher'))
+                                                        @if (($list->status) === 1)
+                                                            <button href="submit" type="button" class="btn btn-danger">
+                                                                <i class="fas fa-ban"></i>
+                                                            </button>
+                                                        @else
+                                                            <button href="submit" type="button" class="btn btn-success">
+                                                                <i class="fas fa-check"></i>
+                                                            </button>
+                                                        @endif
+                                                    @endif
+                                                </form>
+                                            </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                             </tbody>

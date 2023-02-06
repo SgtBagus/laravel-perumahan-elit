@@ -23,17 +23,6 @@
         </div>
       </div>
       <div class="mx-1 flex-grow-1">
-        <label>Status :</label>
-          
-        <select class="form-control">
-          <option>option 1</option>
-          <option>option 2</option>
-          <option>option 3</option>
-          <option>option 4</option>
-          <option>option 5</option>
-        </select>
-      </div>
-      <div class="mx-1 flex-grow-1">
         <label>Search :</label>
             
         <div class="input-group">
@@ -60,7 +49,6 @@
         <th>No</th>
         <th>Nama</th>
         <th>Total Harga</th>
-        <th>Status</th>
         <th>Di Update Oleh</th>
         <th>Update Terakhir</th>
         <th>Action</th>
@@ -72,13 +60,6 @@
         <td>{{ $loop->index+1}}</td>
         <td>{{ $paymentList->pemilik }}</td>
         <td>Rp. {{ $paymentList->total_harga }}.00,-</td>
-        <td>
-          @if (($paymentList->status) === 1)
-            <label class="fx-bold">Lunas</label>
-          @else
-            <label class="fx-bold text-danger">Belum Lunas</label>
-          @endif
-        </td>
         <td>{{ $paymentList->pembuat }}</td>
         <td>{{ date_format($paymentList->updated_at,"d M Y H:i:s") }}</td>
         <td>

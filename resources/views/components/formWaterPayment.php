@@ -40,52 +40,10 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-12 table-responsive">
-                <label>Data Bualanan Pengguna :</label>
-                <table class="table table-striped">
-                  <thead>
-                      <tr>
-                          <th>No</th>
-                          <th>Tanggal</th>
-                          <th>M. Bulan Kemarin</th>
-                          <th>M. Bulan Sekarang</th>
-                          <th>Kenaikan M.</th>
-                          <th>Biaya per Meter</th>
-                          <th>Total</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td>1</td>
-                          <td>2022-02-01</td>
-                          <td>2312123</td>
-                          <td>2312223</td>
-                          <td>15</td>
-                          <td>500000</td>
-                          <td>1500000</td>
-                      </tr>
-                      <tr>
-                          <td>2</td>
-                          <td>2022-02-01</td>
-                          <td>2312123</td>
-                          <td>2312223</td>
-                          <td>15</td>
-                          <td>500000</td>
-                          <td>1500000</td>
-                      </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class="row">
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Meteran Bulan Kemarin</label>
-                  <input type="number" name="lastmountmeter" id="last-mount-date-input" class="form-control" placeholder="Meteran Bulan Kemarin">
-                  <div class="custom-control custom-checkbox my-2">
-                    <input class="custom-control-input" type="checkbox" id="customCheckbox1">
-                    <label for="customCheckbox1" class="custom-control-label">Ambil Data Meteran Bulan Kemarin</label>
-                  </div>
+                  <input type="number" name="lastmountmeter" class="form-control" placeholder="Meteran Bulan Kemarin" disabled>
                 </div>
               </div>
               <div class="col-md-4">
@@ -112,14 +70,6 @@
                 <div class="form-group">
                   <label>Total Nominal Pengeluaran Bulan ini</label>
                   <input type="number" class="form-control" placeholder="Total Nominal Pengeluaran Bulan ini" disabled>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label>Catatan Tambahan :</label>
-                  <textarea class="form-control" rows="5" placeholder="Catatan..."></textarea>
                 </div>
               </div>
             </div>

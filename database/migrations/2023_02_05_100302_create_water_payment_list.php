@@ -18,7 +18,6 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('user_id');
             $table->float('total_harga', 8, 2);
-            $table->boolean('status');
             $table->bigInteger('updated_by');
             $table->timestamps();
         });
@@ -32,6 +31,7 @@ return new class extends Migration
             $table->integer('current_meter');
             $table->integer('meter_added_value');
             $table->float('total', 8, 2);
+            $table->boolean('status');
             $table->timestamps();
         });
 
@@ -39,7 +39,6 @@ return new class extends Migration
             [
                 'user_id'       => 1,
                 'total_harga'   => 50000.00,
-                'status'        => 0,
                 'updated_by'    => 3,
                 'created_at'    => date('Y-m-d H:i:s'),
                 'updated_at'    => date('Y-m-d H:i:s'),
@@ -53,6 +52,7 @@ return new class extends Migration
                 'current_meter'         => 5,
                 'meter_added_value'     => 5,
                 'total'                 => 25000.00,
+                'status'                => 1,
                 'created_at'            => date('Y-m-d H:i:s'),
                 'updated_at'            => date('Y-m-d H:i:s'),
             ],
@@ -62,6 +62,7 @@ return new class extends Migration
                 'current_meter'         => 10,
                 'meter_added_value'     => 5,
                 'total'                 => 25000.00,
+                'status'                => 0,
                 'created_at'            => date('Y-m-d H:i:s'),
                 'updated_at'            => date('Y-m-d H:i:s'),
             ],

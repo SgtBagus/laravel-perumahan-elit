@@ -84,7 +84,7 @@
         <td>{{ $paymentList->pembuat }}</td>
         <td>{{ date_format($paymentList->updated_at,"d M Y H:i:s") }}</td>
         <td>
-          <a href="{{ url()->current(); }}/view/{{ $paymentList->id }}" type="button" class="btn btn-primary">
+          <a href="{{ route('water-payment.show', $paymentList->id) }}" type="button" class="btn btn-primary">
             <i class="fas fa-eye"></i>
           </a>
           <button type="button" class="btn btn-danger btn-delete">

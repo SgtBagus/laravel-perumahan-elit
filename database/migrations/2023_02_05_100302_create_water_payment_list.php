@@ -26,12 +26,12 @@ return new class extends Migration
 
         
         /* DETAILS TABLE FOR WATER PAYMENT LIST */
-        Schema::create('details_water_payment_list', function (Blueprint $table) {
+        Schema::create('detail_water_payment_lists', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('water_payment_id');
-            $table->bigInteger('last_meter');
-            $table->bigInteger('current_meter');
-            $table->bigInteger('meter_added_value');
+            $table->integer('last_meter');
+            $table->integer('current_meter');
+            $table->integer('meter_added_value');
             $table->float('total', 8, 2);
             $table->boolean('status');
             $table->timestamps();

@@ -61,7 +61,6 @@
         <th>Nama</th>
         <th>Total Harga</th>
         <th>Status</th>
-        <th>Catatan</th>
         <th>Di Update Oleh</th>
         <th>Update Terakhir</th>
         <th>Action</th>

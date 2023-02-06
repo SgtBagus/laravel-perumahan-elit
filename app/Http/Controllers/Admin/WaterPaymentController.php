@@ -24,7 +24,6 @@ class WaterPaymentController extends Controller {
                                     'pemilik.name as pemilik',
                                     'water_payment_lists.total_harga as total_harga',
                                     'water_payment_lists.status as status',
-                                    'water_payment_lists.note as note',
                                     'pembuat.name as pembuat',
                                     'water_payment_lists.updated_at as updated_at',
                                 )
@@ -47,7 +46,6 @@ class WaterPaymentController extends Controller {
                                     'pemilik.email as email_pemilik',
                                     'water_payment_lists.total_harga as total_harga',
                                     'water_payment_lists.status as status',
-                                    'water_payment_lists.note as note',
                                     'pembuat.name as pembuat',
                                     'water_payment_lists.updated_at as updated_at',
                                 )->orderBy('water_payment_lists.id', 'desc')->find($id),

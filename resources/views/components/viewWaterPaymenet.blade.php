@@ -1,23 +1,5 @@
     <div class="row">
         <div class="col-12">
-            <div class="callout callout-info">
-                <h5>Catatan:</h5>
-                @if ((Auth::user()->role !== 'user') && (Auth::user()->role !== 'casher'))
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <textarea class="form-control" rows="5" name="note" placeholder="Catatan...">{{ $dataInvoices->note }}</textarea>
-                        </div>
-                        <div class="col-sm-12 my-3">
-                            <button type="button" class="btn btn-primary btn-block">
-                                <i class="fas fa-check"></i> Edit
-                            </button>
-                        </div>
-                    </div>
-                @elseif ((Auth::user()->role !== 'user') && (Auth::user()->role === 'noted'))
-                    {{ $dataInvoices->note }}
-                @endif
-            </div>
-
             <div class="invoice p-3 mb-3">
                 <div class="row invoice-info">
                     <div class="col-sm-4 invoice-col">

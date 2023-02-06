@@ -80,7 +80,6 @@
             <label class="fx-bold text-danger">Belum Lunas</label>
           @endif
         </td>
-        <td>{{ $paymentList->note }}</td>
         <td>{{ $paymentList->pembuat }}</td>
         <td>{{ date_format($paymentList->updated_at,"d M Y H:i:s") }}</td>
         <td>

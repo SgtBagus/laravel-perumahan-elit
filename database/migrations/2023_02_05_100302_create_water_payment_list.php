@@ -19,7 +19,6 @@ return new class extends Migration
             $table->bigInteger('user_id');
             $table->float('total_harga', 8, 2);
             $table->boolean('status');
-            $table->string('note')->nullable();
             $table->bigInteger('updated_by');
             $table->timestamps();
         });

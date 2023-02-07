@@ -10,6 +10,6 @@ class DetailWaterPaymentList extends Model {
 
     
     protected $fillable = [
-        'current_meter', 'meter_added_value', 'total',
+        'water_payment_id', 'last_meter', 'current_meter', 'status', 'meter_added_value', 'total',
     ];
 }

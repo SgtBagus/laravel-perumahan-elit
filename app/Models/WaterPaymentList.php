@@ -10,5 +10,7 @@ class WaterPaymentList extends Model {
 
     public $timestamps = true;
 
-    protected $fillable = ['value'];
+    protected $fillable = [
+        'value', 'updated_by', 'user_id'
+    ];
 }

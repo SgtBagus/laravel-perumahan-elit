@@ -7,7 +7,16 @@
         <div class="col-md-6">
           <h2 class="card-title">Payment List</h2>
         </div>
-        @include('components.formWaterPayment')
+        <div class="col-md-6">
+          <div class="float-right">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-xl">
+              <i class="fas fa-plus mr-2"></i>
+                Add Data
+            </button>
+          </div>
+        </div>
+      
+        @include('components.formWaterPaymet')
       </div>
     </div>
 

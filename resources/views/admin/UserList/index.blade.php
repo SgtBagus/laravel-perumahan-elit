@@ -21,40 +21,6 @@
       </div>
     </div>
 
-    <div class="card-header">
-      <form>
-        <div class="d-flex align-items-end">
-          <div class="mx-1 flex-grow-1">
-            <label>Role :</label>
-            
-            <select class="form-control">
-              <option>Admin</option>
-              <option>Kasir</option>
-              <option>Pencatat Meter Air</option>
-              <option>User</option>
-            </select>
-          </div>
-          <div class="mx-1 flex-grow-1">
-            <label>Search :</label>
-            
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <i class="fas fa-search"></i>
-                </span>
-              </div>
-              <input type="text" class="form-control" placeholder="Cari...">
-            </div>
-          </div>
-          <div class="mx-1">
-            <button type="button" class="btn btn-primary">
-              Submit
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-
     <div class="card-body">
       <table id="example2" class="table table-bordered table-hover">
         <thead>
@@ -191,12 +157,13 @@
     $(document).ready(function() {
       $('#example2').DataTable({
         "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": false,
+        "lengthChange": true,
+        "searching": true,
+        "ordering": true,
         "info": true,
         "autoWidth": false,
         "responsive": true,
+        "scrollX": true
       });
       
       //Initialize Select2 Elements

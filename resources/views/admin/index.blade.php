@@ -89,13 +89,7 @@
         </div>
         <div class="card-footer">
           <div class="row">
-            <div class="col-6">
-              <div class="description-block border-right">
-                <h5 class="description-header">152</h5>
-                <span class="description-text">TOTAL DATA PEMBAYARAN</span>
-              </div>
-            </div>
-            <div class="col-6">
+            <div class="col-12">
               <div class="description-block border-right">
                 <h5 class="description-header">$10,390.90</h5>
                 <span class="description-text">TOTAL SEMUA DANA DATA PEMBAYARAN</span>

@@ -11,7 +11,7 @@
     <div class="col-lg-3 col-6">
       <div class="small-box bg-info">
         <div class="inner">
-          <h3>150</h3>
+          <h3>{{ $totalData }}</h3>
 
           <p>Total Data Catatan Air</p>
         </div>
@@ -24,7 +24,7 @@
     <div class="col-lg-3 col-6">
       <div class="small-box bg-success">
         <div class="inner">
-          <h3>Rp 2.242.122</h3>
+          <h3>{{ $totalDanaLunas }}</h3>
 
           <p>Total Dana Masuk Catatan Air</p>
         </div>
@@ -37,7 +37,7 @@
     <div class="col-lg-3 col-6">
       <div class="small-box bg-danger">
         <div class="inner">
-          <h3>Rp 55.764</h3>
+          <h3>{{ $totalDanaBelumLunas }}</h3>
 
           <p>Total Dana yang belum Terbayar</p>
         </div>
@@ -50,7 +50,7 @@
     <div class="col-lg-3 col-6">
       <div class="small-box bg-warning">
         <div class="inner">
-          <h3>23</h3>
+          <h3>{{ $totalUser }}</h3>
 
           <p>Total User</p>
         </div>

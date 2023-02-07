@@ -26,11 +26,11 @@ class UserListController extends Controller {
         $users = User::findOrFail($id);
 
         $users->update([
-            'name'      => $request->name,
-            'email'     => $request->email,
-            'address'   => $request->address,
-            'role'      => $request->role,
-            'updated_at'            => date('Y-m-d H:i:s'),
+            'name'          => $request->name,
+            'email'         => $request->email,
+            'address'       => $request->address,
+            'role'          => $request->role,
+            'updated_at'    => date('Y-m-d H:i:s'),
         ]);
 
         return redirect()->back();

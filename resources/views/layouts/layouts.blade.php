@@ -29,7 +29,6 @@
                   </div>
                   <section class="content">
                     <div class="container">
-                      @include('components.paymentReminder')
                       @yield('content')
                     </section>
                   </section>

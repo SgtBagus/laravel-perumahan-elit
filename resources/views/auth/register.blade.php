@@ -47,6 +47,20 @@
                     @enderror
                 </div>
                 <div class="input-group mb-3">
+                    <input id="lastmeteran" type="number" class="form-control @error('lastmeteran') is-invalid @enderror" name="lastmeteran" value="{{ old('lastmeteran') }}" required placeholder="Jumlah Meteran Terakhir">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-table"></span>
+                        </div>
+                    </div>
+
+                    @error('lastmeteran')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="input-group mb-3">
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
                     <div class="input-group-append">
                         <div class="input-group-text">

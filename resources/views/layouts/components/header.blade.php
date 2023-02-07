@@ -2,14 +2,20 @@
   <div class="container">
     <div class="collapse navbar-collapse order-3" id="navbarCollapse">
       <ul class="navbar-nav">
-        @if ((Auth::user()->role !== 'user') && (Auth::user()->role === 'casher'))
+        @guest
+        @else
           <li class="nav-item">
-            <a href="{{ url('/casher') }}" class="nav-link">Kasir</a>
+            <a href="{{ url('/dashboard') }}" class="nav-link">Dashboard</a>
           </li>
-        @elseif ((Auth::user()->role !== 'user') && (Auth::user()->role === 'noted'))
-          <li class="nav-item">
-            <a href="{{ url('/water-noted') }}" class="nav-link">Pencatatan Meteran</a>
-          </li>
+          @if ((Auth::user()->role !== 'user') && (Auth::user()->role === 'casher'))
+            <li class="nav-item">
+              <a href="{{ url('/casher') }}" class="nav-link">Kasir</a>
+            </li>
+          @elseif ((Auth::user()->role !== 'user') && (Auth::user()->role === 'noted'))
+            <li class="nav-item">
+              <a href="{{ url('/water-noted') }}" class="nav-link">Pencatatan Meteran</a>
+            </li>
+          @endif
         @endif
       </ul>
     </div>

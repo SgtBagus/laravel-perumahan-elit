@@ -29,24 +29,28 @@
                     <b> Sistem Pencatatan dan Pembayaran Air </b>
                 </small>
             </h1>
-            <div class="row mt-3">
-                <div class="col-6 text-right">
-                    <a class="btn btn-primary" href="{{ route('login') }}">
-                      Login
-                      <i class="fas fa-sign-in-alt mx-2"></i>
-                    </a>
-      
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                      @csrf
-                    </form>
+            
+            @guest
+                <div class="row mt-3">
+                    <div class="col-6 text-right">
+                        <a class="btn btn-primary" href="{{ route('login') }}">
+                        Login
+                        <i class="fas fa-sign-in-alt mx-2"></i>
+                        </a>
+        
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                        </form>
+                    </div>
+                    <div class="col-6 text-left">
+                        <a class="btn btn-primary" href="{{ route('register') }}">
+                            Register
+                            <i class="fas fa-users mx-2"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="col-6 text-left">
-                    <a class="btn btn-primary" href="{{ route('register') }}">
-                        Register
-                        <i class="fas fa-users mx-2"></i>
-                    </a>
-                </div>
-            </div>
+            @else
+            @endguest
         </div>
     </div>
 @endsection

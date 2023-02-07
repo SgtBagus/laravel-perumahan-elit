@@ -1,5 +1,5 @@
 @extends('layouts.layouts')
 
 @section('content')
-    sad;laksd;lk
+    @include('components.viewWaterPaymenet')
 @endsection

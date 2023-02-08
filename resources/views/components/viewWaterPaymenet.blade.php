@@ -45,32 +45,34 @@
                                         <td>{{ date_format($list->created_at, "d M Y H:i:s") }}</td>
                                         <td>{{ $list->last_meter }}</td>
                                         <td>
-                                            @if(($loop->last) && ($list->status !== 1))
-                                                @if ((Auth::user()->role !== 'user') && (Auth::user()->role !== 'casher'))
-                                                    <form action="{{ route('detail_payment_lists.update', $list->id) }}" method="POST">
-                                                        @csrf
-                                                        @method('PUT')
+                                            @if ((Auth::user()->role !== 'user') && (Auth::user()->role !== 'casher'))
+                                                @if(($loop->last))
+                                                    @if(($list->status) !== 1)
+                                                        <form action="{{ route('detail_payment_lists.update', $list->id) }}" method="POST">
+                                                            @csrf
+                                                            @method('PUT')
 
-                                                        <div class="row">
-                                                            <div class="col-md-10">
-                                                                <input
-                                                                    type="number"
-                                                                    class="form-control"
-                                                                    value={{ $list->current_meter }}
-                                                                    name="currentMeter"
-                                                                    placeholder="Meteran Sekarang..."
-                                                                >
-                                                                <input type="hidden" name="typeEdit" value="meterEdit" placeholder="Meteran Sekarang...">
+                                                            <div class="row">
+                                                                <div class="col-md-10">
+                                                                    <input
+                                                                        type="number"
+                                                                        class="form-control"
+                                                                        value={{ $list->current_meter }}
+                                                                        name="currentMeter"
+                                                                        placeholder="Meteran Sekarang..."
+                                                                    >
+                                                                    <input type="hidden" name="typeEdit" value="meterEdit" placeholder="Meteran Sekarang...">
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <button type="submit" class="btn btn-primary">
+                                                                        <i class="fas fa-edit"></i>
+                                                                    </button>
+                                                                </div>
                                                             </div>
-                                                            <div class="col-md-2">
-                                                                <button type="submit" class="btn btn-primary">
-                                                                    <i class="fas fa-edit"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
+                                                        </form>
+                                                    @endif
                                                 @endif
-                                            @else 
+                                            @else
                                                 {{ $list->current_meter }}
                                             @endif
                                         </td>
@@ -113,11 +115,15 @@
                                                         </button>
                                                     @elseif ((Auth::user()->role === 'casher'))
                                                         @if (($list->status) === 1)
-                                                            <button href="submit" type="button" class="btn btn-danger">
+                                                            <input type="hidden" name="typeEdit" value="status" />
+                                                            <input type="hidden" name="status" value="0" />
+                                                            <button type="submit" class="btn btn-danger">
                                                                 <i class="fas fa-ban"></i>
                                                             </button>
                                                         @else
-                                                            <button href="submit" type="button" class="btn btn-success">
+                                                            <input type="hidden" name="typeEdit" value="status" />
+                                                            <input type="hidden" name="status" value="1" />
+                                                            <button type="submit" class="btn btn-success">
                                                                 <i class="fas fa-check"></i>
                                                             </button>
                                                         @endif
@@ -142,7 +148,13 @@
                                     <td><b>Rp. {{ $totalDepts }}.00,-</b></td>
                                 </tr>
                             </table>
-                            <a href="{{ route('water-payment.index') }}" type="button" class="btn btn-info btn-block">
+                            @if ((Auth::user()->role === 'admin'))
+                                <a href="{{ route('water-payment.index') }}" type="button" class="btn btn-info btn-block">
+                            @elseif ((Auth::user()->role === 'noted'))
+                                <a href="{{ route('noted.index') }}" type="button" class="btn btn-info btn-block">
+                            @else
+                                <a href="{{ route('casher.index') }}" type="button" class="btn btn-info btn-block">
+                            @endif
                                 Kembali
                             </a>
                         </div>

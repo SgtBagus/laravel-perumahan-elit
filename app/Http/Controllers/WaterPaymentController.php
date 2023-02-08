@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use Auth;
 
@@ -35,7 +35,24 @@ class WaterPaymentController extends Controller {
             "mNominalValue" =>  NominalValue::pluck('value')->first(),
         ];
 
-        return view('admin.paymentData.index', $params);
+        $role = Auth::user()->role; 
+        switch ($role) {
+            case 'admin':
+                return view('admin.paymentData.index', $params);
+                break;
+        
+            case 'casher':
+                return view('paymentData.index', $params);
+                break;
+        
+            case 'noted':
+                return view('paymentData.index', $params);
+                break;
+
+            default:
+                return '/dashboard'; 
+                break;
+        }
     }
 
     public function store(Request $request) {
@@ -84,6 +101,20 @@ class WaterPaymentController extends Controller {
             "detailsList"   =>  DetailWaterPaymentList::where('water_payment_id', '=', $id)->get(),
             "totalDepts"    =>  DetailWaterPaymentList::where('status', 0)->where('water_payment_id', $id)->sum('total'),
         ];
-        return view('admin.paymentData.view', $params);
+
+        $role = Auth::user()->role; 
+        switch ($role) {
+            case 'admin':
+                return view('admin.paymentData.view', $params);
+                break;
+        
+            case 'noted':
+                return view('paymentData.view', $params);
+                break;
+
+            default:
+                return '/dashboard'; 
+                break;
+        }
     }
 }

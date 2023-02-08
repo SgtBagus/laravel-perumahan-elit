@@ -3,6 +3,22 @@
   <link rel="stylesheet" href="{{ asset('/') }}plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="{{ asset('/') }}plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 @endpush
+
+  <div class="card-header">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h2 class="card-title">Payment List</h2>
+      </div>
+      <div class="col-md-6">
+        <div class="float-right">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-xl">
+            <i class="fas fa-plus mr-2"></i>
+              Add Data
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="modal fade" id="modal-xl">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">

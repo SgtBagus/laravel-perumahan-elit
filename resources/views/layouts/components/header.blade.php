@@ -13,7 +13,7 @@
             </li>
           @elseif ((Auth::user()->role !== 'user') && (Auth::user()->role === 'noted'))
             <li class="nav-item">
-              <a href="{{ url('/water-noted') }}" class="nav-link">Pencatatan Meteran</a>
+              <a href="{{ url('/noted') }}" class="nav-link">Pencatatan Meteran</a>
             </li>
           @endif
         @endif

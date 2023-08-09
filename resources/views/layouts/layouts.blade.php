@@ -33,6 +33,7 @@
                     </section>
                   </section>
               </div>
+              @include('layouts.components.footer')
             @endguest
         </div>
     </body>

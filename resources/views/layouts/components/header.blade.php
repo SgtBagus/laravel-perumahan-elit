@@ -7,15 +7,18 @@
           <li class="nav-item">
             <a href="{{ url('/dashboard') }}" class="nav-link">Dashboard</a>
           </li>
-          @if ((Auth::user()->role !== 'user') && (Auth::user()->role === 'casher'))
-            <li class="nav-item">
-              <a href="{{ url('/casher') }}" class="nav-link">Kasir</a>
-            </li>
-          @elseif ((Auth::user()->role !== 'user') && (Auth::user()->role === 'noted'))
-            <li class="nav-item">
-              <a href="{{ url('/noted') }}" class="nav-link">Pencatatan Meteran</a>
-            </li>
-          @endif
+          <li class="nav-item">
+            <a href="{{ url('/pembayaran') }}" class="nav-link">Data Pembayaran</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/house-list') }}" class="nav-link">Data Rumah</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/penghuni-list') }}" class="nav-link">Data Penghuni</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/jenis-pembayaran') }}" class="nav-link">Jenis Pembayaran</a>
+          </li>
         @endif
       </ul>
     </div>
@@ -24,14 +27,8 @@
         @guest
         @else
             <li class="nav-item">
-              <a class="nav-link" href="#">{{ Auth::user()->name }}</a>
+              <a class="nav-link" href="#" style="cursor: default">{{ Auth::user()->name }}</a>
             </li>
-
-            @if ((Auth::user()->role === 'admin'))
-              <li class="nav-item">
-                <a href="{{ url('/admin') }}" class="nav-link">Admin</a>
-              </li>
-            @endif
 
             <li class="nav-item">   
               <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

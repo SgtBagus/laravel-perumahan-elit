@@ -1,5 +1,7 @@
 @extends('layouts.layouts')
 
 @section('content')
-    @include('components.viewWaterPaymenet')
+    {{-- @include('components.viewWaterPaymenet') --}}
+
+    test
 @endsection
